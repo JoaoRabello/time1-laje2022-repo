@@ -708,7 +708,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.6701479, y: 1}
+    m_SensorSize: {x: 1.7951356, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -823,7 +823,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06c7da8f27ed4d69b440add8bce21cfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentWeapon: {fileID: 11400000, guid: 0785e2afbfe315a499f1081a37478f96, type: 2}
+  _currentWeapon: {fileID: 11400000, guid: 1da346a9cfc8e4a46a8afda84037c405, type: 2}
   _hitBoxLayerMask:
     serializedVersion: 2
     m_Bits: 256
@@ -1064,7 +1064,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &1303540161
 MonoBehaviour:
   m_ObjectHideFlags: 0
