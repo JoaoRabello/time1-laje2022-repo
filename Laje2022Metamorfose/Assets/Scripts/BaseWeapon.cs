@@ -1,21 +1,69 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class BaseWeapon : MonoBehaviour
 {
+    [SerializeField] private WeaponData _currentWeapon;
+    [SerializeField] private LayerMask _hitBoxLayerMask;
     [SerializeField] private List<GameObject> _aimArrowList = new List<GameObject>();
 
     private Vector2 _aimDirection;
-    
+    private float _attackTimer;
+    private Transform _currentArrowTransform;
+
+    private void Update()
+    {
+        PerformAttackTimer();
+    }
+
     /// <summary>
-    /// Define a direção de mira e liga a seta correspondente
+    /// Faz a contagem do tempo e, se atingir o tempo para atacar, ataca e reseta o timer
+    /// </summary>
+    private void PerformAttackTimer()
+    {
+        if (_attackTimer >= _currentWeapon.AttackCooldown)
+        {
+            Attack();
+            _attackTimer = 0;
+        }
+        else
+        {
+            _attackTimer += Time.deltaTime;
+        }
+    }
+
+    /// <summary>
+    /// Performa o ataque da arma
+    /// </summary>
+    private void Attack()
+    {
+        var hits = Physics2D.OverlapCircleAll(_currentArrowTransform.position, _currentWeapon.AttackRange, _hitBoxLayerMask);
+
+        foreach (var hit in hits)
+        {
+            var enemy = hit.GetComponentInParent<Enemy>();
+            if (!enemy) continue;
+            
+            Debug.Log($"Deu {_currentWeapon.Damage} de dano em {_currentWeapon.AttackRange} personagens de distância em {enemy.name}");
+
+            enemy.TakeHit(_currentWeapon.Damage);
+        }
+    }
+
+    /// <summary>
+    /// Define a direção de mira se for diferente de 0 e liga a seta correspondente
     /// </summary>
     /// <param name="direction">Direção desejada</param>
     public void SetAimDirection(Vector2 direction)
     {
-        _aimDirection = direction;
-        HighlightArrowByIndex(GetArrowIndexByDirection(direction));
+        if (Mathf.Abs(direction.x) > 0.1f || Mathf.Abs(direction.y) > 0.1f)
+        {
+            _aimDirection = direction;
+        }
+        
+        HighlightArrowByIndex(GetArrowIndexByDirection(_aimDirection));
     }
 
     /// <summary>
@@ -49,5 +97,7 @@ public class BaseWeapon : MonoBehaviour
         {
             _aimArrowList[i].SetActive(i == index);
         }
+
+        _currentArrowTransform = _aimArrowList[index].transform;
     }
 }
