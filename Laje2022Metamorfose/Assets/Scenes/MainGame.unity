@@ -321,18 +321,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 1303540161}
   _enemySpawnerManager: {fileID: 850424662}
-  _characterDatas: []
+  _characterDatas:
+  - {fileID: 11400000, guid: 511c2316784650d479130f251f2fc22a, type: 2}
+  - {fileID: 11400000, guid: 915edf120bced1a459c894717fbfec11, type: 2}
+  - {fileID: 11400000, guid: 1fcd484b3839ad94ea0494249b08cb2a, type: 2}
+  - {fileID: 11400000, guid: dc8eeddbe284aab48bc92cef6f1a0ab6, type: 2}
   _transformations:
-  - IsRandomCharater: 0
+  - IsRandomCharater: 1
     Character: {fileID: 11400000, guid: 915edf120bced1a459c894717fbfec11, type: 2}
-    Time: 60
-  - IsRandomCharater: 0
+    Time: 10
+  - IsRandomCharater: 1
     Character: {fileID: 11400000, guid: 1fcd484b3839ad94ea0494249b08cb2a, type: 2}
     Time: 120
-  - IsRandomCharater: 0
+  - IsRandomCharater: 1
     Character: {fileID: 11400000, guid: 511c2316784650d479130f251f2fc22a, type: 2}
     Time: 120
-  - IsRandomCharater: 0
+  - IsRandomCharater: 1
     Character: {fileID: 11400000, guid: dc8eeddbe284aab48bc92cef6f1a0ab6, type: 2}
     Time: 120
   _enemySpawnTimes:
@@ -1533,7 +1537,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7783505, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
