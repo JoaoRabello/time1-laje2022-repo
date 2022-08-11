@@ -44,6 +44,12 @@ public class BaseWeapon : MonoBehaviour
     /// </summary>
     private void Attack()
     {
+        var vfx = Instantiate(_currentWeapon.VisualEffect, _currentArrowTransform.position, Quaternion.identity);
+        vfx.transform.rotation = Quaternion.LookRotation(_currentArrowTransform.position - transform.position);
+        vfx.transform.rotation = Quaternion.Euler(new Vector3(0, 0, vfx.transform.eulerAngles.z));
+        
+        StartCoroutine(VisualEffect(vfx));
+        
         var hits = Physics2D.OverlapCircleAll(_currentArrowTransform.position, _currentWeapon.AttackRange, _hitBoxLayerMask);
 
         foreach (var hit in hits)
@@ -55,6 +61,12 @@ public class BaseWeapon : MonoBehaviour
 
             enemy.TakeHit(_currentWeapon.Damage);
         }
+    }
+
+    private IEnumerator VisualEffect(GameObject visualEffectObject)
+    {
+        yield return new WaitForSeconds(_currentWeapon.VisualEffectTime);
+        Destroy(visualEffectObject);
     }
 
     /// <summary>

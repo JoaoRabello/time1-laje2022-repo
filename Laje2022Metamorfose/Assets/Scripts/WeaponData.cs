@@ -6,4 +6,7 @@ public class WeaponData : ScriptableObject
     public float AttackCooldown;
     public float AttackRange;
     public float Damage;
+
+    public GameObject VisualEffect;
+    public float VisualEffectTime;
 }

@@ -161,6 +161,7 @@ MonoBehaviour:
   _totalHealth: 8
   _moveSpeed: 1
   _damage: 2.5
+  _knockBackForce: 100
 --- !u!50 &8368036591478939672
 Rigidbody2D:
   serializedVersion: 4

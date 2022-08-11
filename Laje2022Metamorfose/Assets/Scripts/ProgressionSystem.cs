@@ -3,11 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class ProgressionSystem : MonoBehaviour
 {
     [SerializeField] private PlayerMove _player;
     [SerializeField] private EnemySpawnerManager _enemySpawnerManager;
+    [SerializeField] private List<CharacterData> _characterDatas = new List<CharacterData>();
     [SerializeField] private List<TransformationTime> _transformations = new List<TransformationTime>();
     [SerializeField] private List<EnemySpawnTime> _enemySpawnTimes = new List<EnemySpawnTime>();
     
@@ -29,7 +31,6 @@ public class ProgressionSystem : MonoBehaviour
 
     void Update()
     {
-        //TODO: Mudar os timers para seguirem o _currentTimer ao inves de terem timers unicos
         TransformationTimer();
         EnemySpawnTimer();
 
@@ -46,7 +47,15 @@ public class ProgressionSystem : MonoBehaviour
         
         if (_transformationTimer >= _transformations[_transformationIndex].Time)
         {
-            TransformPlayer(_transformations[_transformationIndex].Character);
+            if (_transformations[_transformationIndex].IsRandomCharater)
+            {
+                var characterIndex = Random.Range(0, _characterDatas.Count);
+                TransformPlayer(_characterDatas[characterIndex]);
+            }
+            else
+            {
+                TransformPlayer(_transformations[_transformationIndex].Character);
+            }
             
             _transformationTimer = 0;
             _transformationIndex++;
@@ -69,20 +78,6 @@ public class ProgressionSystem : MonoBehaviour
             
             ChangeEnemySpawnTime(_enemySpawnTimes[_enemySpawnTimesIndex].SpawnRateInSeconds);
         }
-        
-        // if (_enemySpawnTimer >= _enemySpawnTimes[_enemySpawnTimesIndex].Time)
-        // {
-        //     _enemySpawnTimesIndex++;
-        //     
-        //     if (_enemySpawnTimesIndex >= _enemySpawnTimes.Count) return;
-        //     ChangeEnemySpawnTime(_enemySpawnTimes[_enemySpawnTimesIndex].TimeToSpawn);
-        //     
-        //     _enemySpawnTimer = 0;
-        // }
-        // else
-        // {
-        //     _enemySpawnTimer += Time.deltaTime;
-        // }
     }
 
     private void ChangeEnemySpawnTime(float value)
@@ -99,6 +94,7 @@ public class ProgressionSystem : MonoBehaviour
 [Serializable]
 public class TransformationTime
 {
+    public bool IsRandomCharater;
     public CharacterData Character;
     public float Time;
 }

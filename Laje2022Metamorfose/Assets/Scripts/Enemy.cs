@@ -10,11 +10,14 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float _totalHealth;
     [SerializeField] private float _moveSpeed = 2f;
     [SerializeField] private float _damage = 2f;
+    [SerializeField] private float _knockBackForce = 10f;
 
     private float _currentHealth;
     private Rigidbody2D rb;
     private Vector2 movement;
     private AudioSource _SFXSource;
+
+    private bool _canMove = true;
 
     public float Damage => _damage;
     
@@ -55,6 +58,7 @@ public class Enemy : MonoBehaviour
     
     void MoveCharacter(Vector2 direction)
     {
+        if (!_canMove) return;
         rb.velocity = direction * _moveSpeed;
     }
 
@@ -79,14 +83,19 @@ public class Enemy : MonoBehaviour
 
     private IEnumerator HitFeedback()
     {
+        _canMove = false;
+        
         _visual.color = Color.red;
+        
+        rb.AddForce((transform.position - _target.position).normalized * _knockBackForce);
         
         while (_visual.color.g < 0.95)
         {
             _visual.color = new Color(_visual.color.r, _visual.color.g + Time.deltaTime * 2, _visual.color.b + Time.deltaTime * 2);
             yield return null;
         }
-        
+
+        _canMove = true;
         _visual.color = Color.white;
     }
 }
