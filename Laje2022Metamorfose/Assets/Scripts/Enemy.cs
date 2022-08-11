@@ -8,10 +8,13 @@ public class Enemy : MonoBehaviour
     [SerializeField] private Transform _target;
     [SerializeField] private float _totalHealth;
     [SerializeField] private float _moveSpeed = 2f;
+    [SerializeField] private float _damage = 2f;
 
     private float _currentHealth;
     private Rigidbody2D rb;
     private Vector2 movement;
+
+    public float Damage => _damage;
     
     void Start()
     {

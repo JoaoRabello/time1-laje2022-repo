@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,12 +15,15 @@ public class PlayerMove : MonoBehaviour
 
     Animate animate;
     bool facingRight = true;
+    private float _currentHealth;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         movementVector = new Vector3();
         animate = GetComponent<Animate>();
+
+        _currentHealth = _currentCharacterData.Health;
         
         _baseWeapon.SetWeapon(_currentCharacterData.Weapon);
         animate.SetAnimatorController(_currentCharacterData.Animator);
@@ -28,6 +32,24 @@ public class PlayerMove : MonoBehaviour
     void Update()
     {
         PerformMovement();
+    }
+
+    private void TakeHit(float damage)
+    {
+        _currentHealth -= damage;
+
+        if (_currentHealth <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.CompareTag("EnemyDamageArea"))
+        {
+            TakeHit(col.GetComponentInParent<Enemy>().Damage);
+        }
     }
 
     /// <summary>
