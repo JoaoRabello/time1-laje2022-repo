@@ -328,6 +328,8 @@ MonoBehaviour:
     Time: 120
   - Character: {fileID: 11400000, guid: 511c2316784650d479130f251f2fc22a, type: 2}
     Time: 120
+  - Character: {fileID: 11400000, guid: dc8eeddbe284aab48bc92cef6f1a0ab6, type: 2}
+    Time: 120
   _enemySpawnTimes:
   - SpawnRateInSeconds: 3
     TimeInSecondsToEnd: 60
