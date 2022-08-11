@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Lagartinha
   m_EditorClassIdentifier: 
   Speed: 2
-  Health: 1000
+  Health: 3
   Weapon: {fileID: 11400000, guid: 0785e2afbfe315a499f1081a37478f96, type: 2}
   Visual: {fileID: 0}
   Animator: {fileID: 22100000, guid: 5074870d38f18c445884902083863d21, type: 2}
