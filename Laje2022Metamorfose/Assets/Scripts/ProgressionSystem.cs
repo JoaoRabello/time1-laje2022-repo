@@ -7,6 +7,7 @@ using UnityEngine;
 public class ProgressionSystem : MonoBehaviour
 {
     [SerializeField] private PlayerMove _player;
+    [SerializeField] private EnemySpawnerManager _enemySpawnerManager;
     [SerializeField] private List<TransformationTime> _transformations = new List<TransformationTime>();
     
     [Header("UI")]
@@ -15,6 +16,11 @@ public class ProgressionSystem : MonoBehaviour
     private float _currentTimer;
     private float _transformationTimer;
     private int _transformationIndex;
+
+    private void Start()
+    {
+        _enemySpawnerManager.SetTimeToSpawn(3);
+    }
 
     void Update()
     {

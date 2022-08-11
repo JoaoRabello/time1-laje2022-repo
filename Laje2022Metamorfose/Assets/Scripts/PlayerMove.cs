@@ -10,6 +10,8 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private BaseWeapon _baseWeapon;
     [SerializeField] private CharacterData _currentCharacterData;
     [SerializeField] private SpriteRenderer _visual;
+    
+    [Header("UI")]
     [SerializeField] private Slider _hpBar;
     
     Rigidbody2D rb;
