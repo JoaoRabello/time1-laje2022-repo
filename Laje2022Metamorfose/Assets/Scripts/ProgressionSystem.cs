@@ -43,8 +43,6 @@ public class ProgressionSystem : MonoBehaviour
 
     private void TransformationTimer()
     {
-        if (_transformationIndex >= _transformations.Count) return;
-        
         if (_transformationTimer >= _transformations[_transformationIndex].Time)
         {
             if (_transformations[_transformationIndex].IsRandomCharater)
@@ -58,7 +56,11 @@ public class ProgressionSystem : MonoBehaviour
             }
             
             _transformationTimer = 0;
-            _transformationIndex++;
+
+            if (_transformationIndex < _transformations.Count - 1)
+            {
+                _transformationIndex++;
+            }
         }
         else
         {
