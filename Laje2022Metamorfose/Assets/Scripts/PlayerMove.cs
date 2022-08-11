@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMove : MonoBehaviour
@@ -9,6 +10,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private BaseWeapon _baseWeapon;
     [SerializeField] private CharacterData _currentCharacterData;
     [SerializeField] private SpriteRenderer _visual;
+    [SerializeField] private Slider _hpBar;
     
     Rigidbody2D rb;
     Vector3 movementVector;
@@ -38,6 +40,8 @@ public class PlayerMove : MonoBehaviour
     {
         _currentHealth -= damage;
 
+        _hpBar.value = _currentHealth / _currentCharacterData.Health;
+
         if (_currentHealth <= 0)
         {
             Destroy(gameObject);
@@ -57,6 +61,7 @@ public class PlayerMove : MonoBehaviour
         _currentCharacterData = characterData;
         
         _currentHealth = _currentCharacterData.Health;
+        _hpBar.value = 1;
         
         _baseWeapon.SetWeapon(_currentCharacterData.Weapon);
         animate.SetAnimatorController(_currentCharacterData.Animator);
