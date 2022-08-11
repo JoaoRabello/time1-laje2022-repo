@@ -14,6 +14,8 @@ public class PlayerMove : MonoBehaviour
     [Header("UI")]
     [SerializeField] private GameObject _gameOverScreen;
     [SerializeField] private Slider _hpBar;
+    [SerializeField] private AudioSource GameplayBackgroundMusic;
+    [SerializeField] private AudioSource GameOverBackgroundMusic;
     
     Rigidbody2D rb;
     Vector3 movementVector;
@@ -49,6 +51,8 @@ public class PlayerMove : MonoBehaviour
         {
             _gameOverScreen.SetActive(true);
             Time.timeScale = 0;
+            GameplayBackgroundMusic.Stop();
+            GameOverBackgroundMusic.Play();
         }
     }
 
@@ -72,7 +76,7 @@ public class PlayerMove : MonoBehaviour
     }
 
     /// <summary>
-    /// Chama todos os métodos necessários para o movimento
+    /// Chama todos os mï¿½todos necessï¿½rios para o movimento
     /// </summary>
     private void PerformMovement()
     {
@@ -82,7 +86,7 @@ public class PlayerMove : MonoBehaviour
     }
 
     /// <summary>
-    /// Verifica se a direção de movimento é a mesma que está olhando. Se não, vira o personagem
+    /// Verifica se a direï¿½ï¿½o de movimento ï¿½ a mesma que estï¿½ olhando. Se nï¿½o, vira o personagem
     /// </summary>
     private void SetLookingDirection()
     {
@@ -93,7 +97,7 @@ public class PlayerMove : MonoBehaviour
     }
 
     /// <summary>
-    /// Passa para o Animate se o player está andando ou não
+    /// Passa para o Animate se o player estï¿½ andando ou nï¿½o
     /// </summary>
     private void RenderMovementAnimation()
     {
@@ -101,7 +105,7 @@ public class PlayerMove : MonoBehaviour
     }
 
     /// <summary>
-    /// Define a direção do jogador, passa a mira para a arma, configura a velocidade e então aplica o movimento
+    /// Define a direï¿½ï¿½o do jogador, passa a mira para a arma, configura a velocidade e entï¿½o aplica o movimento
     /// </summary>
     private void SetMovementDirection()
     {
@@ -118,7 +122,7 @@ public class PlayerMove : MonoBehaviour
     }
 
     /// <summary>
-    /// Define se está olhando para a direita e vira o personagem
+    /// Define se estï¿½ olhando para a direita e vira o personagem
     /// </summary>
     void Flip()
     {
