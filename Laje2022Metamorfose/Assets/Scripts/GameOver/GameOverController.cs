@@ -7,7 +7,7 @@ public class GameOverController : MonoBehaviour
 {
     public void HandleRestartBtn() {
         Time.timeScale = 1;
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("MainGame");
     }
 
     public void HandleQuitBtn() {
