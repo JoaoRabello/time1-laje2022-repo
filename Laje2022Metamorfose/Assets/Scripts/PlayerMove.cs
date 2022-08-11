@@ -17,6 +17,8 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private Slider _hpBar;
     [SerializeField] private AudioSource GameplayBackgroundMusic;
     [SerializeField] private AudioSource GameOverBackgroundMusic;
+    [SerializeField] private AudioSource SFXSource;
+    [SerializeField] private AudioClip _transformationSFX;
     
     Rigidbody2D rb;
     Vector3 movementVector;
@@ -72,7 +74,7 @@ public class PlayerMove : MonoBehaviour
         
         _baseWeapon.SetWeapon(_currentCharacterData.Weapon);
         animate.PlayTransformation(characterData);
-
+        SFXSource.PlayOneShot(_transformationSFX);
         animate.SetAnimatorController(_currentCharacterData.Animator);
     }
 
