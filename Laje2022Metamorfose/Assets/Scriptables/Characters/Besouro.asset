@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Besouro
   m_EditorClassIdentifier: 
   Speed: 1
-  Health: 3
+  Health: 25
   Weapon: {fileID: 11400000, guid: 1da346a9cfc8e4a46a8afda84037c405, type: 2}
   Visual: {fileID: 0}
   Animator: {fileID: 22100000, guid: d048a29e0ba433146810134c38a30197, type: 2}

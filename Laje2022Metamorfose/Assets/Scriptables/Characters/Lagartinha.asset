@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d47f854a59e8405e85212e311e5b02dd, type: 3}
   m_Name: Lagartinha
   m_EditorClassIdentifier: 
-  Speed: 3
+  Speed: 2
   Health: 3
   Weapon: {fileID: 11400000, guid: 0785e2afbfe315a499f1081a37478f96, type: 2}
   Visual: {fileID: 0}

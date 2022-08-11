@@ -52,6 +52,16 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
+    public void Transform(CharacterData characterData)
+    {
+        _currentCharacterData = characterData;
+        
+        _currentHealth = _currentCharacterData.Health;
+        
+        _baseWeapon.SetWeapon(_currentCharacterData.Weapon);
+        animate.SetAnimatorController(_currentCharacterData.Animator);
+    }
+
     /// <summary>
     /// Chama todos os métodos necessários para o movimento
     /// </summary>

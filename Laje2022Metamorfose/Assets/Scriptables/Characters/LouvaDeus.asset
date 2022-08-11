@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d47f854a59e8405e85212e311e5b02dd, type: 3}
+  m_Name: LouvaDeus
+  m_EditorClassIdentifier: 
+  Speed: 3
+  Health: 15
+  Weapon: {fileID: 11400000, guid: 208ed7454c675954ca630a571d1ef575, type: 2}
+  Visual: {fileID: 0}
+  Animator: {fileID: 22100000, guid: 80937fe1361a3b1418a689cf7a01c07f, type: 2}
