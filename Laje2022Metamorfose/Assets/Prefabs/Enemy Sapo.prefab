@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1316035886725955868}
-  - component: {fileID: 6755882639539161952}
+  - component: {fileID: 2020346444334395719}
   m_Layer: 7
   m_Name: Damage Area
   m_TagString: EnemyDamageArea
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 8368036591478939673}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &6755882639539161952
+--- !u!58 &2020346444334395719
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -47,7 +47,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 0.8
 --- !u!1 &7262716187995308754
 GameObject:
   m_ObjectHideFlags: 0
@@ -157,6 +157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _visual: {fileID: 8368036591742634559}
   _target: {fileID: 0}
+  _deathClip: {fileID: 8300000, guid: f91a7955f8110394e81ec3d48d1cae44, type: 3}
   _totalHealth: 8
   _moveSpeed: 1
   _damage: 2.5

@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer _visual;
     [SerializeField] private Transform _target;
+    [SerializeField] private AudioClip _deathClip;
     [SerializeField] private float _totalHealth;
     [SerializeField] private float _moveSpeed = 2f;
     [SerializeField] private float _damage = 2f;
@@ -13,6 +14,7 @@ public class Enemy : MonoBehaviour
     private float _currentHealth;
     private Rigidbody2D rb;
     private Vector2 movement;
+    private AudioSource _SFXSource;
 
     public float Damage => _damage;
     
@@ -30,6 +32,11 @@ public class Enemy : MonoBehaviour
     public void SetTarget(Transform target)
     {
         _target = target;
+    }
+
+    public void SetAudioSource(AudioSource source)
+    {
+        _SFXSource = source;
     }
     
     void Update()
@@ -65,6 +72,7 @@ public class Enemy : MonoBehaviour
         if (_currentHealth <= 0)
         {
             StopAllCoroutines();
+            _SFXSource.PlayOneShot(_deathClip);
             Destroy(gameObject);
         }
     }

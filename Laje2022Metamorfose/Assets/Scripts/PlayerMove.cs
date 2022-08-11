@@ -12,6 +12,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private SpriteRenderer _visual;
     
     [Header("UI")]
+    [SerializeField] private GameObject _gameOverScreen;
     [SerializeField] private Slider _hpBar;
     
     Rigidbody2D rb;
@@ -46,7 +47,8 @@ public class PlayerMove : MonoBehaviour
 
         if (_currentHealth <= 0)
         {
-            Destroy(gameObject);
+            _gameOverScreen.SetActive(true);
+            Time.timeScale = 0;
         }
     }
 
