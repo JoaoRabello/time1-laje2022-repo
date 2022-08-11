@@ -1,19 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 
-public class Animate : MonoBehaviour{
-
-    Animator animator;
+public class Animate : MonoBehaviour
+{
+    [SerializeField] Animator _animator;
 
     public bool inMovement;
 
-
-    private void Start() {
-        animator = GetComponentInChildren<Animator>();
+    public void SetAnimatorController(AnimatorOverrideController controller)
+    {
+        _animator.runtimeAnimatorController = controller;
     }
-
-    private void Update() {
-        animator.SetBool("inMovement", inMovement);
+    
+    private void Update()
+    {
+        _animator.SetBool("inMovement", inMovement);
     }
 }

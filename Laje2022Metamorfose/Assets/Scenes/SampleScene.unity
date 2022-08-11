@@ -1078,6 +1078,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _baseWeapon: {fileID: 1043774644}
+  _currentCharacterData: {fileID: 11400000, guid: ad940e82cd7f0af4a8d7b8e5b5cb0814, type: 2}
   _visual: {fileID: 1074119647}
 --- !u!4 &1303540162
 Transform:
@@ -1109,6 +1110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a11c328070cc513479c30f506fdb4e95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _animator: {fileID: 1074119646}
   inMovement: 0
 --- !u!1 &1473433996
 GameObject:

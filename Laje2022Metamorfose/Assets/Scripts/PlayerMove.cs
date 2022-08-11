@@ -6,11 +6,11 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
     [SerializeField] private BaseWeapon _baseWeapon;
+    [SerializeField] private CharacterData _currentCharacterData;
     [SerializeField] private SpriteRenderer _visual;
     
     Rigidbody2D rb;
     Vector3 movementVector;
-    float speed = 3f;
 
     Animate animate;
     bool facingRight = true;
@@ -20,6 +20,9 @@ public class PlayerMove : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         movementVector = new Vector3();
         animate = GetComponent<Animate>();
+        
+        _baseWeapon.SetWeapon(_currentCharacterData.Weapon);
+        animate.SetAnimatorController(_currentCharacterData.Animator);
     }
 
     void Update()
@@ -68,7 +71,7 @@ public class PlayerMove : MonoBehaviour
         
         _baseWeapon.SetAimDirection(movementVector);
         
-        movementVector *= speed;
+        movementVector *= _currentCharacterData.Speed;
         
         rb.velocity = movementVector;
     }

@@ -18,6 +18,11 @@ public class BaseWeapon : MonoBehaviour
         PerformAttackTimer();
     }
 
+    public void SetWeapon(WeaponData weapon)
+    {
+        _currentWeapon = weapon;
+    }
+
     /// <summary>
     /// Faz a contagem do tempo e, se atingir o tempo para atacar, ataca e reseta o timer
     /// </summary>
