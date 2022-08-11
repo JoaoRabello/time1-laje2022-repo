@@ -321,18 +321,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 1303540161}
   _enemySpawnerManager: {fileID: 850424662}
-  _characterDatas: []
+  _characterDatas:
+  - {fileID: 11400000, guid: 511c2316784650d479130f251f2fc22a, type: 2}
+  - {fileID: 11400000, guid: 915edf120bced1a459c894717fbfec11, type: 2}
+  - {fileID: 11400000, guid: 1fcd484b3839ad94ea0494249b08cb2a, type: 2}
+  - {fileID: 11400000, guid: dc8eeddbe284aab48bc92cef6f1a0ab6, type: 2}
   _transformations:
-  - IsRandomCharater: 0
+  - IsRandomCharater: 1
     Character: {fileID: 11400000, guid: 915edf120bced1a459c894717fbfec11, type: 2}
-    Time: 60
-  - IsRandomCharater: 0
+    Time: 10
+  - IsRandomCharater: 1
     Character: {fileID: 11400000, guid: 1fcd484b3839ad94ea0494249b08cb2a, type: 2}
     Time: 120
-  - IsRandomCharater: 0
+  - IsRandomCharater: 1
     Character: {fileID: 11400000, guid: 511c2316784650d479130f251f2fc22a, type: 2}
     Time: 120
-  - IsRandomCharater: 0
+  - IsRandomCharater: 1
     Character: {fileID: 11400000, guid: dc8eeddbe284aab48bc92cef6f1a0ab6, type: 2}
     Time: 120
   _enemySpawnTimes:
@@ -1397,7 +1401,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.6638079, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1840,6 +1844,7 @@ GameObject:
   - component: {fileID: 1074119645}
   - component: {fileID: 1074119647}
   - component: {fileID: 1074119646}
+  - component: {fileID: 1074119648}
   m_Layer: 7
   m_Name: Visual
   m_TagString: Untagged
@@ -1934,6 +1939,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1074119648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1074119644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a11c328070cc513479c30f506fdb4e95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 1074119646}
+  _spriteRenderer: {fileID: 1074119647}
+  inMovement: 0
 --- !u!1 &1154062371
 GameObject:
   m_ObjectHideFlags: 0
@@ -2264,7 +2284,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1303540162}
   - component: {fileID: 1303540161}
-  - component: {fileID: 1303540163}
   - component: {fileID: 1303540160}
   m_Layer: 7
   m_Name: PlayerCharacter
@@ -2309,6 +2328,7 @@ MonoBehaviour:
   _baseWeapon: {fileID: 1043774644}
   _currentCharacterData: {fileID: 11400000, guid: ad940e82cd7f0af4a8d7b8e5b5cb0814, type: 2}
   _visual: {fileID: 1074119647}
+  animate: {fileID: 1074119648}
   _gameOverScreen: {fileID: 1843727510}
   _hpBar: {fileID: 1925111574}
   GameplayBackgroundMusic: {fileID: 1177510518}
@@ -2332,20 +2352,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1303540163
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1303540159}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a11c328070cc513479c30f506fdb4e95, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _animator: {fileID: 1074119646}
-  inMovement: 0
 --- !u!1 &1473433996
 GameObject:
   m_ObjectHideFlags: 0

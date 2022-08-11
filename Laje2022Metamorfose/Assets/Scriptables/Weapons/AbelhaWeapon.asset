@@ -15,3 +15,5 @@ MonoBehaviour:
   AttackCooldown: 0.5
   AttackRange: 1.5
   Damage: 3
+  VisualEffect: {fileID: 2991064990318407600, guid: 92fe8411fecbc7048beb9cffa9f8eed1, type: 3}
+  VisualEffectTime: 0.5

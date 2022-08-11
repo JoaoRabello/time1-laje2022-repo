@@ -15,5 +15,5 @@ MonoBehaviour:
   Speed: 4
   Health: 10
   Weapon: {fileID: 11400000, guid: 617130310a2703a40a78d20385922a20, type: 2}
-  Visual: {fileID: 0}
+  Visual: {fileID: 21300000, guid: d369a84616ecfc444932f013b373a847, type: 3}
   Animator: {fileID: 22100000, guid: 9a282b0157cba0e40924095f5200e1c5, type: 2}

@@ -10,6 +10,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private BaseWeapon _baseWeapon;
     [SerializeField] private CharacterData _currentCharacterData;
     [SerializeField] private SpriteRenderer _visual;
+    [SerializeField] private Animate animate;
     
     [Header("UI")]
     [SerializeField] private GameObject _gameOverScreen;
@@ -20,7 +21,6 @@ public class PlayerMove : MonoBehaviour
     Rigidbody2D rb;
     Vector3 movementVector;
 
-    Animate animate;
     bool facingRight = true;
     private float _currentHealth;
 
@@ -28,7 +28,6 @@ public class PlayerMove : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         movementVector = new Vector3();
-        animate = GetComponent<Animate>();
 
         _currentHealth = _currentCharacterData.Health;
         
@@ -72,6 +71,8 @@ public class PlayerMove : MonoBehaviour
         _hpBar.value = 1;
         
         _baseWeapon.SetWeapon(_currentCharacterData.Weapon);
+        animate.PlayTransformation(characterData);
+
         animate.SetAnimatorController(_currentCharacterData.Animator);
     }
 
