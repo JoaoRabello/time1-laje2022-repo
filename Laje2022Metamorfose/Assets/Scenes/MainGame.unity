@@ -3418,6 +3418,7 @@ MonoBehaviour:
   GameOverBackgroundMusic: {fileID: 1563059128}
   SFXSource: {fileID: 797696706}
   _transformationSFX: {fileID: 8300000, guid: f741f7487a4fc404aa193e3d4f38f815, type: 3}
+  _damageSFX: {fileID: 8300000, guid: ca5c337095328da49a6feb27862cab9a, type: 3}
 --- !u!4 &1303540162
 Transform:
   m_ObjectHideFlags: 0

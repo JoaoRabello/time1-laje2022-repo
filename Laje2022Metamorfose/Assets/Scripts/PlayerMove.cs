@@ -19,6 +19,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private AudioSource GameOverBackgroundMusic;
     [SerializeField] private AudioSource SFXSource;
     [SerializeField] private AudioClip _transformationSFX;
+    [SerializeField] private AudioClip _damageSFX;
     
     Rigidbody2D rb;
     Vector3 movementVector;
@@ -52,6 +53,7 @@ public class PlayerMove : MonoBehaviour
     {
         _currentHealth -= damage;
 
+        SFXSource.PlayOneShot(_damageSFX);
         _hpBar.value = _currentHealth / _currentCharacterData.Health;
 
         if (_currentHealth <= 0)
