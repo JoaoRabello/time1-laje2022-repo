@@ -17,3 +17,7 @@ MonoBehaviour:
   Damage: 8
   VisualEffect: {fileID: 2991064990318407600, guid: 92fe8411fecbc7048beb9cffa9f8eed1, type: 3}
   VisualEffectTime: 0.5
+  SFX:
+  - {fileID: 8300000, guid: df68a868af0e5064d83c97ac31954394, type: 3}
+  - {fileID: 8300000, guid: c5dfe73baf128e04fa7497b0368bb2d9, type: 3}
+  - {fileID: 8300000, guid: 55ff1ccd102b1f548bfece23ee114eae, type: 3}

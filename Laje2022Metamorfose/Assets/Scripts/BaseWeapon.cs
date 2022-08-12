@@ -7,6 +7,7 @@ public class BaseWeapon : MonoBehaviour
 {
     [SerializeField] private WeaponData _currentWeapon;
     [SerializeField] private LayerMask _hitBoxLayerMask;
+    [SerializeField] private AudioSource _sfxSource;
     [SerializeField] private List<GameObject> _aimArrowList = new List<GameObject>();
 
     private Vector2 _aimDirection;
@@ -54,6 +55,8 @@ public class BaseWeapon : MonoBehaviour
         vfx.transform.rotation = Quaternion.Euler(new Vector3(0, 0, vfx.transform.eulerAngles.z));
         
         StartCoroutine(VisualEffect(vfx));
+        
+        _sfxSource.PlayOneShot(_currentWeapon.GetRandomAttackVFX());
         
         var hits = Physics2D.OverlapCircleAll(_currentArrowTransform.position, _currentWeapon.AttackRange, _hitBoxLayerMask);
 
