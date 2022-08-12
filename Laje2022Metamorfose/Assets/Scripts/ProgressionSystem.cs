@@ -12,6 +12,8 @@ public class ProgressionSystem : MonoBehaviour
     [SerializeField] private List<CharacterData> _characterDatas = new List<CharacterData>();
     [SerializeField] private List<TransformationTime> _transformations = new List<TransformationTime>();
     [SerializeField] private List<EnemySpawnTime> _enemySpawnTimes = new List<EnemySpawnTime>();
+
+    private List<CharacterData> _tempCharacterDatas = new List<CharacterData>();
     
     [Header("UI")]
     [SerializeField] private TMP_Text _timerLabel;
@@ -47,8 +49,22 @@ public class ProgressionSystem : MonoBehaviour
         {
             if (_transformations[_transformationIndex].IsRandomCharater)
             {
+                if (_characterDatas.Count <= 0)
+                {
+                    foreach (var data in _tempCharacterDatas)
+                    {
+                        _characterDatas.Add(data);
+                    }
+                    
+                    _tempCharacterDatas.Clear();
+                }
                 var characterIndex = Random.Range(0, _characterDatas.Count);
-                TransformPlayer(_characterDatas[characterIndex]);
+                var character = _characterDatas[characterIndex];
+                
+                TransformPlayer(character);
+                
+                _tempCharacterDatas.Add(character);
+                _characterDatas.Remove(character);
             }
             else
             {
