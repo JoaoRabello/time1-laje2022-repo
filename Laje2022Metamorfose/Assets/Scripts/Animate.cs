@@ -10,6 +10,7 @@ public class Animate : MonoBehaviour
 
     public bool inMovement;
     private Sprite _visual;
+    public static bool IsTransforming;
 
     public void SetAnimatorController(AnimatorOverrideController controller)
     {
@@ -18,6 +19,7 @@ public class Animate : MonoBehaviour
 
     public void PlayTransformation(CharacterData nextCharacter)
     {
+        IsTransforming = true;
         _animator.Play("Transformation");
         _visual = nextCharacter.Visual;
         // StartCoroutine(ChangeSprite(nextCharacter.Visual));
@@ -25,8 +27,12 @@ public class Animate : MonoBehaviour
 
     public void ChangeSprite()
     {
-        Debug.Log(_visual);
         _spriteRenderer.sprite = _visual;
+    }
+
+    public void EndTransformation()
+    {
+        IsTransforming = false;
     }
 
     // private IEnumerator ChangeSprite(Sprite sprite)

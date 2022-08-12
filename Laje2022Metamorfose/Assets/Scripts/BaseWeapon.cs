@@ -15,6 +15,10 @@ public class BaseWeapon : MonoBehaviour
 
     private void Update()
     {
+        if (Animate.IsTransforming)
+        {
+            return;
+        }
         PerformAttackTimer();
     }
 
@@ -28,6 +32,7 @@ public class BaseWeapon : MonoBehaviour
     /// </summary>
     private void PerformAttackTimer()
     {
+        
         if (_attackTimer >= _currentWeapon.AttackCooldown)
         {
             Attack();

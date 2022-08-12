@@ -53,6 +53,11 @@ public class Enemy : MonoBehaviour
     
     private void FixedUpdate()
     {
+        if (Animate.IsTransforming)
+        {
+            rb.velocity = Vector3.zero;
+            return;
+        }
         MoveCharacter(movement);
     }
     

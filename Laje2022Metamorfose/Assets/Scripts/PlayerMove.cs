@@ -39,6 +39,12 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
+        if (Animate.IsTransforming)
+        {
+            rb.velocity = Vector3.zero;
+            return;
+        }
+        
         PerformMovement();
     }
 
